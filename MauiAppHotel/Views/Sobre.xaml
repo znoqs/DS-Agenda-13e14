@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppHotel.Views.Sobre"
+             Title="Sobre"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Background2}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Gray950}"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Margin="10" Padding="10" Spacing="10">
+        <Label 
+            Text="Sobre"
+            FontSize="Title"
+            FontFamily="RobotoMonoRegular"
+            VerticalOptions="Center"
+            HorizontalOptions="Center" />
+
+        <Frame Margin="10" Padding="10" Background="{StaticResource Background1}">
+
+            <VerticalStackLayout>
+                <Label Text="Desenvolvido em 2024 por Enzo Sibuta através das agendas 13 e 14 do curso de desenvolvimento de sistemas."/>
+
+                <Button Text="Voltar" Clicked="Button_Clicked" Margin="10" Padding="10"/>
+                
+            </VerticalStackLayout>
+        </Frame>
+
+    </VerticalStackLayout>
+</ContentPage>

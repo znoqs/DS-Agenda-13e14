@@ -3,37 +3,72 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppHotel.Views.HospedagemContratada"
              NavigationPage.HasBackButton="False"
-             BackgroundColor="{StaticResource Gray200}">
+             BackgroundColor="{StaticResource Background1}">
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="{StaticResource Gray950}"/>
+        </Style>
+    </ContentPage.Resources>
 
     <VerticalStackLayout VerticalOptions="CenterAndExpand">
 
-    <Label Text="Suíte Luxo"
-           TextColor="{StaticResource Primary}"
+    <Label Text="{Binding QuartoSelecionado.Descricao}"
            FontFamily="RobotoMonoRegular"
            FontSize="50"
            HorizontalTextAlignment="Center"/>
 
-        <Frame>
 
-            <HorizontalStackLayout>
-                <HorizontalStackLayout>
-                    <Label Text="Adultos"/>
-                    <Label Text="2" TextColor="{StaticResource Primary}"/>
-                </HorizontalStackLayout>
+        <Frame Margin="10" Padding="10" BackgroundColor="{StaticResource Background2}">
+            <VerticalStackLayout>
+                <Frame Margin="10" BackgroundColor="{StaticResource Background2}">
 
-                <HorizontalStackLayout>
-                    <Label Text="Crianças:"/>
-                    <Label Text="2" TextColor="{StaticResource Primary}"/>
-                </HorizontalStackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Adultos"/>
+                            <Label Text="{Binding QntAdultos}"/>
+                        </HorizontalStackLayout>
 
-            </HorizontalStackLayout>
+                        <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Crianças:"/>
+                            <Label Text="{Binding QntCriancas}"/>
+                        </HorizontalStackLayout>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame Margin="10" BackgroundColor="{StaticResource Background2}">
+                    <Grid ColumnDefinitions="*, *, *" RowDefinitions="Auto, Auto">
+                        <Label Grid.Row="0" Grid.Column="0" Text="Check-In"/>
+                        <Label Grid.Row="0" Grid.Column="1" Text="Check-Out"/>
+                        <Label Grid.Row="0" Grid.Column="2" Text="Estadia"/>
+
+                        <Label Grid.Row="1" Grid.Column="0" 
+               Text="{Binding DataCheckin, StringFormat='{}{0:dd/MM/yyyy}'}"/>
+
+                        <Label Grid.Row="1" Grid.Column="1" 
+               Text="{Binding DataCheckout,StringFormat='{}{0:dd/MM/yyyy}'}"/>
+                        <Label Grid.Row="1" Grid.Column="2" Text="{Binding Estadia}"/>
+                    </Grid>
+                </Frame>
+
+                <Frame Margin="10" BackgroundColor="{StaticResource Background2}">
+                    <HorizontalStackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="Valor Total: "/>
+                        <Label Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+
+                <Button Text="Voltar" Clicked="Button_Clicked" HorizontalOptions="Center"
+        BackgroundColor="{StaticResource Main1}"/>
+
+            </VerticalStackLayout>
         </Frame>
-
-        <Frame>
-
-            <Grid></Grid>
-            
-        </Frame>
+        
+        <Button Text="Sobre" Clicked="Button_Clicked_1" HorizontalOptions="Center" Margin="20"
+                BackgroundColor="{StaticResource Main2}"/>
 
     </VerticalStackLayout>
 </ContentPage>
